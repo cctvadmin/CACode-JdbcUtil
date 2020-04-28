@@ -3,7 +3,7 @@
 
   CACode-JDBCHelp-专注Java/Android开发
 
-Toggle navigation ![icon](http://adminznh.ren/assets/images/icon.png) [CACode-cctvadmin : JDBCHelp](http://www.adminznh.ren)
+Toggle navigation ![icon](images/logo.png) [CACode-cctvadmin : JDBCHelp](http://www.adminznh.ren)
 
 *   [下载](../../File/JDBCHelp.jar)
 *   [原生方法：​](#)
