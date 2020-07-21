@@ -23,6 +23,7 @@ package com.cacode.jdbcutil;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -166,6 +167,55 @@ public class JdbcUtil extends DataSources {
             close(conn, pstmt);
         }
         return count;
+    }
+
+    public List<List<Object>> readAll(String sql, Object... objects) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<List<Object>> list = new ArrayList<>();
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            for (int i = 0; i < objects.length; i++) {
+                pstmt.setObject((i + 1), objects[i]);
+            }
+            rs = pstmt.executeQuery(sql);
+            //列数
+            int maxCol = 0;
+            int a = 0x10000000;
+            while (rs.next()) {
+                boolean exit = false;
+                for (int i = 0; i < a; i++) {
+                    try {
+                        rs.getObject((i + 1));
+                    } catch (SQLException e) {
+                        exit = true;
+                    }
+                    if (exit) {
+                        break;
+                    }
+                    maxCol++;
+                }
+                if (exit) {
+                    break;
+                }
+            }
+            rs.first();
+            for (int i = 0; i < maxCol; i++) {
+                list.add(new ArrayList<>());
+            }
+            while (rs.next()) {
+                for (int i = 0; i < maxCol; i++) {
+                    list.get(i).add(rs.getObject((i + 1)));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(conn, pstmt);
+        }
+        return list;
     }
 
     /**
