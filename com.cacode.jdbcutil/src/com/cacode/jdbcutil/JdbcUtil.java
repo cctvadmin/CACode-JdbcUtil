@@ -14,7 +14,9 @@
  * 项目名： JDBCHelp
  * 文件名： JDBCHelp.java
  * 模块说明：
- * 修改历史:
+ * 修改历史: {
+ *  2020/7/21:更改名称JdbcTool为->JdbcUtil -- CACoode_cctvadmin
+ * }
  * 2020-3-12 - CACode - 创建。
  */
 package com.cacode.jdbcutil;
@@ -52,7 +54,7 @@ import java.util.Vector;
  * <p>
  * driverClassName=com.mysql.cj.jdbc.Driver
  * <p>
- * url=jdbc:mysql://127.0.0.1:3306/wdf?useSSL=false&serverTimezone=UTC
+ * url=jdbc:mysql://127.0.0.1:3306/cacode?useSSL=false&serverTimezone=UTC
  * <p>
  * username=root
  * <p>
@@ -76,7 +78,7 @@ import java.util.Vector;
  * @date 2020/7/14 03:08
  */
 @SuppressWarnings("ALL")
-public class JdbcTool extends DataSources {
+public class JdbcUtil extends DataSources {
     /**
      * 加载配置文件<BR/>
      * 示例：<BR/>
@@ -87,7 +89,7 @@ public class JdbcTool extends DataSources {
      *
      * @param path 文件所在路径
      */
-    public JdbcTool(InputStream path) {
+    public JdbcUtil(InputStream path) {
         super(path);
     }
 
@@ -165,14 +167,15 @@ public class JdbcTool extends DataSources {
      * <p/>
      * 如：
      * <p/>
-     * <p>
-     * list_1 list_2 list_3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
+     * <pre>
+     *     list_1 list_2 list_3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     * </pre>
      * <p/>
      *
      * @param read 表名
@@ -199,14 +202,15 @@ public class JdbcTool extends DataSources {
      * <p/>
      * 如：
      * <p/>
-     * <p>
-     * list_1 list_2 list_3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
+     * <pre>
+     *     list_1 list_2 list_3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     * </pre>
      * <p/>
      *
      * @param sql       sql语句
@@ -266,14 +270,15 @@ public class JdbcTool extends DataSources {
      * <p/>
      * 如：
      * <p/>
-     * <p>
-     * list_1 list_2 list_3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
-     * <p/>
-     * &nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;3
+     * <pre>
+     *     list_1 list_2 list_3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     *
+     *     1     2     3
+     * </pre>
      * <p/>
      * &nbsp;&nbsp;&nbsp;&nbsp; 问号数量必须与数组长度一致，否则抛出 SQLException
      *
