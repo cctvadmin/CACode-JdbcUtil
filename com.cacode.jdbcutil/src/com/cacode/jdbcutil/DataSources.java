@@ -20,6 +20,7 @@
 
 package com.cacode.jdbcutil;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 import javax.sql.DataSource;
@@ -28,6 +29,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -91,6 +93,25 @@ public class DataSources {
         Properties pro = new Properties();
         try {
             pro.load(path);
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 不需要新建配置文件的方法
+     * <p>
+     * 键值对方式，如：url=jdbc://............就可以设置为：map.put("url","jdbc://............ ")
+     *
+     * @param properties 配置信息
+     */
+    public DataSources(Map<String, String> properties) {
+        Properties pro = new Properties();
+        for (String item : properties.keySet()) {
+            pro.setProperty(item, properties.get(item));
+        }
+        try {
             ds = DruidDataSourceFactory.createDataSource(pro);
         } catch (Exception e) {
             e.printStackTrace();

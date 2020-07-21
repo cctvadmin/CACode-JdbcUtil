@@ -24,6 +24,7 @@ package com.cacode.jdbcutil;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -91,6 +92,17 @@ public class JdbcUtil extends DataSources {
      */
     public JdbcUtil(InputStream path) {
         super(path);
+    }
+
+    /**
+     * 不需要新建配置文件的方法
+     * <p>
+     * 键值对方式，如：url=jdbc://............就可以设置为：map.put("url","jdbc://............ ")
+     *
+     * @param properties 配置信息
+     */
+    public JdbcUtil(Map<String, String> properties) {
+        super(properties);
     }
 
     /**
