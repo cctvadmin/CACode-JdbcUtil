@@ -19,9 +19,11 @@ Toggle navigation ![icon](images/logo.png) [CACode-cctvadmin : JDBCHelp](http://
 
 * * *
 
-本架包全权由cctvadmin编写，基于我国强大的阿里云Druid连接池
+本架包全权由cctvadmin编写，基于我国强大的阿里云Druid连接池  
 
 读取：
+
+#### 新增：[public List<List<Object>> readAll(String sql, Object... objects)](#readAll)  
 
 [read​(Object\[\] sql, int lineCount, String sqlPrepared)](#read)  
 [read​(String sql, int lineCount)](#read)  
@@ -1048,14 +1050,18 @@ read​(Object\[\] sql, int lineCount, String sqlPrepared)
         }
         return count;
     }
-                    
+  
 
+# 新增  
+  List<List<Object>> readAll(String sql, Object... objects)
+    源代码：
+                    
 Thank you for reading(感谢您的阅读)
 =============================
 
 Do you want to download it on now?(你想现在下载吗？)
 ============================================
 
-[Yes(是的)](JDBCHelp_jar/JDBCHelp.jar) No, thanks(不了，谢谢)
+[Yes(是的)](com_cacode_jdbcutil_jar\com.cacode.jdbcutil.jar) No, thanks(不了，谢谢)
 
 ### ©Copyright2019-2025 CACode 粤ICP备案号：20009502号-1
