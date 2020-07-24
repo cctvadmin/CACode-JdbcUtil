@@ -180,7 +180,7 @@ public class JdbcUtil extends DataSources {
             for (int i = 0; i < objects.length; i++) {
                 pstmt.setObject((i + 1), objects[i]);
             }
-            rs = pstmt.executeQuery(sql);
+            rs = pstmt.executeQuery();
             //列数
             int maxCol = 0;
             int a = 0x10000000;
@@ -201,7 +201,7 @@ public class JdbcUtil extends DataSources {
                     break;
                 }
             }
-            rs.first();
+            rs.beforeFirst();
             for (int i = 0; i < maxCol; i++) {
                 list.add(new ArrayList<>());
             }
@@ -213,7 +213,7 @@ public class JdbcUtil extends DataSources {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            close(conn, pstmt);
+            close(conn, pstmt, rs);
         }
         return list;
     }
